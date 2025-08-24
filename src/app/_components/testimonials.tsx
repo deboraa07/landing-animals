@@ -11,28 +11,31 @@ import {
   Clock,
 } from "lucide-react";
 import { WhatsappLogoIcon } from "@phosphor-icons/react";
+import tutor1 from '../../../public/tutor1.png';
+import Image from 'next/image';
 
-const services = [
+
+const testimonials = [
   {
     content:
      "Desde que comecei a levar a Luna para banho e tosa aqui, ela nunca esteve tão feliz!",
-    author: "Mariana Souza",
-    role: "Tutora de Luna (Golden Retriever)",
-    image: "",
+    author: "Mariano Souza",
+    role: "Tutor de Luna (Golden Retriever)",
+    image: tutor1,
   },
   {
     content:
      "O serviço de hotel para pets foi uma experiência incrível! Precisei viajar e fiquei tranquilo sabendo que Thor estava sendo bem cuidado.",
     author: "Rafael",
     role: "Tutor do Thor (Bulldog Francês)",
-    image: "",
+    image: tutor1,
   },
   {
     content:
-    "Meus gatos nunca gostaram de sair de casa, mas o atebdimento nesse petshop fez toda a diferença",
-    author: "",
-    role: "",
-    image: "",
+    "Meus gatos nunca gostaram de sair de casa, mas o atendimento nesse petshop fez toda a diferença.",
+    author: "Caio Fernandes",
+    role: "Tutor da Mel e do Max",
+    image: tutor1,
   },
 ];
 
@@ -57,12 +60,30 @@ export function Testimonials() {
         <div className="relative max-w-4xl mx-auto">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
-              {services.map((item, index) => (
+              {testimonials.map((item, index) => (
                 <div key={index} className="flex-[0_0_100%] min-w-0 px-3">
                   <article
                     className="bg-[#1e293b] text-white rounded-2xl p-6 space-y-4 h-full
-                        flex flex-col"
-                  ></article>
+                        flex flex-col">
+                    <div className="flex flex-col items-center text-center space-y-4">
+                      <div className="relative w-24 h-24">
+                    <Image
+                    src={item.image}
+                    alt="item.author"
+                    fill
+                    sizes="96px"
+                    className="object-cover rounded-full"
+                    />
+                      </div>
+                      <p className="text-gray-200">{item.content}</p>
+
+                      <div>
+                      <p className="font-bold">{item.author}</p>
+                      <p className="text-sm text-gray-400">{item.role}</p>
+                      </div>
+
+                    </div>
+                  </article>
                 </div>
               ))}
             </div>
